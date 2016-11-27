@@ -19,8 +19,7 @@ public class FindHowManyTimes {
                 t = t + 1;
             }
         }
-        System.out.println("Значение = " + value+" встречается "+t+" раз" );
-
+        System.out.println("Значение = " + value + " встречается " + t + " раз");
 
     }
 
