@@ -13,33 +13,32 @@ public class SqEquation {
             System.out.println("Введите c:");
             double c = readDouble(scanner);
             System.out.println("Введенные числа а=" + a + " b=" + b + " c=" + c);
-            if (a != 0) {
-                double Dis = (b * b - 4 * a * c);
-                if (Dis >= 0) {
-                    double x1 = (-b + Math.sqrt(Dis)) / (2 * a);
-                    double x2 = (-b - Math.sqrt(Dis)) / (2 * a);
-                    if ((x1 != 0 && x2 != 0) && x1 != x2) {
-                        System.out.print("2 корня  ");
-                        System.out.printf("%.7f ", Math.max(x1, x2));
-                        System.out.printf("%.7f ", Math.min(x1, x2));
-                    } else if ((x1 != 0 && x2 != 0) && x1 == x2) {
-                        System.out.print("1 корень  ");
-                        System.out.printf("%.7f ", x1);
-                    } else if (x1 == 0) {
-                        System.out.print("1 корень  ");
-                        System.out.printf("%.7f ", x2);
-                    } else if (x2 == 0) {
-                        System.out.print("1 корень   ");
-                        System.out.printf("%.7f ", x1);
+            if (a == 0) {
+                if (b == 0) {
+                    if (c == 0) {
+                        System.out.println("-1");
+                    } else {
+                        System.out.println("0");
                     }
-                    break;
                 } else {
-                    System.out.println("Дискриминант D<0, уравнение не имеет решений");
+                    double x = -c / b;
+                    System.out.println("1 " + x);
                 }
             } else {
-                System.out.println("а=0, деление на 0 запрещено");
-            }
+                double Dis = (b * b - 4 * a * c);
+                //final double EPS=1e-6;
+                if (Dis < 0) {
+                    System.out.println("0");
+                } else if (Dis == 0) {
+                    double x1 = -b /(2 * a);
+                    System.out.println("1 " +x1);
+                } else {
+                    double x2 = (-b + Math.sqrt(Dis)) / (2 * a);
+                    double x3 = (-b - Math.sqrt(Dis)) / (2 * a);
+                    System.out.println("2 " + Math.min(x2, x3)+" " + Math.max(x2, x3));
+                }
 
+            } break;
         }
 
     }
